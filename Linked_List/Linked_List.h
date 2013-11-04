@@ -2,8 +2,8 @@
 #define _LKLIST
 struct node
 {
-	void* data;
-	node* next;
+	void* data=null;
+	node* next=null;
 }
 
 node* create();
