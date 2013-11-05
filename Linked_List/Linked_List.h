@@ -18,7 +18,8 @@ node* insert(node* first, int index);
 // index: the zero-based index of the node to insert.
 // return: reference to the inserted node, NULL if arg>length
 
-int insertToEnd();
+int insertToEnd(node* first);
+// first: the first node of the target list
 // return: zero-based index of the inserted node
 
 node* find(node* first, int index);
