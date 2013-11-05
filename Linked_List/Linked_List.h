@@ -1,30 +1,32 @@
 #ifndef _LKLIST
 #define _LKLIST
-struct node
+typedef struct Node
 {
-	void* data=null;
-	node* next=null;
-}
+	char* data;
+	struct Node* next;
+} Node;
 
-node* create();
+Node* create();
 // return: reference to the first node of the newly-created list
 
-void remove(node* first, int index);
+void removeNode(Node* first, int index);
 // first: the first node of the target list
 // index: the zero-based index of the node to remove
 
-node* insert(node* first, int index);
+Node* insert(Node* first, int index);
 // first: the first node of the target list
 // index: the zero-based index of the node to insert.
 // return: reference to the inserted node, NULL if arg>length
 
-int insertToEnd(node* first);
+int insertToEnd(Node* first);
 // first: the first node of the target list
 // return: zero-based index of the inserted node
 
-node* find(node* first, int index);
+Node* find(Node* first, int index);
 // first: the first node of the target list
 // index: zero-based index of the node to fine.
 // return: the reference to the found node, NULL if not found
 
+void deleteList(Node* first);
+// first: the first node of the target list
 #endif

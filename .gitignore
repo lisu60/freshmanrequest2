@@ -1,5 +1,8 @@
 *.docx
 *.swp
+*.o
+main
+*.swo
 
 !*.c
 !*.h
