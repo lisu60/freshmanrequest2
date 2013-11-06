@@ -10,19 +10,21 @@ Node* create()
 {
 	Node* result;
 	result=(Node*)malloc(sizeof(Node));
-	result->data=NULL;
+//	result->data=NULL;
+	result->data="new node";
 	result->next=NULL;
 	return result;
 }
 
 void removeNode(Node* first, int index)
 {
-	Node* prevNode;
+	Node *prevNode, *targetNode;
 	if(index<0) return;
 	prevNode=find(first, index-1);
-	prevNode->next=prevNode->next->next;
-	printf("%s\n",prevNode->next->data);
-	free(prevNode->next);
+	targetNode=prevNode->next;
+	prevNode->next=targetNode->next;
+	printf("%s removed\n",targetNode->data);
+	free(targetNode);
 }
 
 Node* insert(Node* first, int index)
@@ -42,7 +44,7 @@ int insertToEnd(Node* first)
 	i=0;
 	lastNode=traversal(first, -1);
 	lastNode->next=create();
-	return i+2;
+	return i+1;
 }
 
 Node* find(Node* first, int index)
@@ -57,7 +59,7 @@ void deleteList(Node* first)
 {
 	if(first->next!=NULL)
 		deleteList(first->next);
-	printf("%s\n", first->data);
+	printf("%s deleted\n", first->data);
 	free(first);
 }
 
@@ -66,10 +68,11 @@ void deleteList(Node* first)
 // need to set variable i before calling
 Node* traversal(Node* current, int index)
 {
+	printf("traversal at %s\n", current->data);
 	if(current->next==NULL)
 		return current;
 	else if(i==index-1)
-		return current->next;
+		return current;
 	else
 	{
 		i++;
